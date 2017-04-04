@@ -1,0 +1,707 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/mfncooper/mockery">mockery (v2.0.0)</a>
+</h1>
+<h4>Simplifying the use of mocks with Node.js</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.mockery">module mockery</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.deregisterAll">
+            function <span class="apidocSignatureSpan">mockery.</span>deregisterAll
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.deregisterAllowable">
+            function <span class="apidocSignatureSpan">mockery.</span>deregisterAllowable
+            <span class="apidocSignatureSpan">(mod)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.deregisterAllowables">
+            function <span class="apidocSignatureSpan">mockery.</span>deregisterAllowables
+            <span class="apidocSignatureSpan">(mods)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.deregisterMock">
+            function <span class="apidocSignatureSpan">mockery.</span>deregisterMock
+            <span class="apidocSignatureSpan">(mod)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.deregisterSubstitute">
+            function <span class="apidocSignatureSpan">mockery.</span>deregisterSubstitute
+            <span class="apidocSignatureSpan">(mod)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.disable">
+            function <span class="apidocSignatureSpan">mockery.</span>disable
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.enable">
+            function <span class="apidocSignatureSpan">mockery.</span>enable
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.registerAllowable">
+            function <span class="apidocSignatureSpan">mockery.</span>registerAllowable
+            <span class="apidocSignatureSpan">(mod, unhook)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.registerAllowables">
+            function <span class="apidocSignatureSpan">mockery.</span>registerAllowables
+            <span class="apidocSignatureSpan">(mods, unhook)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.registerMock">
+            function <span class="apidocSignatureSpan">mockery.</span>registerMock
+            <span class="apidocSignatureSpan">(mod, mock)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.registerSubstitute">
+            function <span class="apidocSignatureSpan">mockery.</span>registerSubstitute
+            <span class="apidocSignatureSpan">(mod, subst)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.resetCache">
+            function <span class="apidocSignatureSpan">mockery.</span>resetCache
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.warnOnReplace">
+            function <span class="apidocSignatureSpan">mockery.</span>warnOnReplace
+            <span class="apidocSignatureSpan">(enable)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.mockery.warnOnUnregistered">
+            function <span class="apidocSignatureSpan">mockery.</span>warnOnUnregistered
+            <span class="apidocSignatureSpan">(enable)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.mockery" id="apidoc.module.mockery">module mockery</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.deregisterAll" id="apidoc.element.mockery.deregisterAll">
+        function <span class="apidocSignatureSpan">mockery.</span>deregisterAll
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deregisterAll() {
+    Object.keys(registeredAllowables).forEach(function (mod) {
+        var allow = registeredAllowables[mod];
+        if (allow.unhook) {
+            allow.paths.forEach(function (p) {
+                delete m._cache[p];
+            });
+        }
+    });
+
+    registeredMocks = {};
+    registeredSubstitutes = {};
+    registeredAllowables = {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Deregistering everything
+
+Since it's such a common use case, especially when you're using a unit test
+framework and its setup and teardown functions, Mockery provides a convenience
+function to deregister everything:
+
+    mockery.<span class="apidocCodeKeywordSpan">deregisterAll</span>();
+
+This will deregister all mocks, substitutes, and allowable modules, as well as
+unhooking any hooked modules.
+
+## Controlling the module cache
+
+One of the common problems that people encounter when trying to use mocks in
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.deregisterAllowable" id="apidoc.element.mockery.deregisterAllowable">
+        function <span class="apidocSignatureSpan">mockery.</span>deregisterAllowable
+        <span class="apidocSignatureSpan">(mod)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deregisterAllowable(mod) {
+    if (registeredAllowables.hasOwnProperty(mod)) {
+        var allow = registeredAllowables[mod];
+        if (allow.unhook) {
+            allow.paths.forEach(function (p) {
+                delete m._cache[p];
+            });
+        }
+        delete registeredAllowables[mod];
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    mockery.registerAllowable('./my-source-under-test');
+
+As with `registerMock` and `registerSubstitute`, the first argument, _module_,
+is the name or path of the module as it would be provided to `require`. Once
+again, you can deregister it if you need to:
+
+    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowable</span>('./my-source-under-test');
+
+Sometimes you'll find that you need to register several modules at once. A
+convenience function lets you do this with a single call:
+
+    mockery.registerAllowables(['async', 'path', 'util']);
+
+and similarly to deregister several modules at once, as you would expect:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.deregisterAllowables" id="apidoc.element.mockery.deregisterAllowables">
+        function <span class="apidocSignatureSpan">mockery.</span>deregisterAllowables
+        <span class="apidocSignatureSpan">(mods)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deregisterAllowables(mods) {
+    mods.forEach(function (mod) {
+        deregisterAllowable(mod);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Sometimes you'll find that you need to register several modules at once. A
+convenience function lets you do this with a single call:
+
+    mockery.registerAllowables(['async', 'path', 'util']);
+
+and similarly to deregister several modules at once, as you would expect:
+
+    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowables</span>(['async', 'path', 'util'
+;]);
+
+### Unhooking
+
+By default, the Node module loader will load a given module only once, caching
+the loaded module for the lifetime of the process. When you're using Mockery,
+this is almost always what you want. _Almost_. In relatively rare situations,
+you may find that you need to use different mocks for different test cases
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.deregisterMock" id="apidoc.element.mockery.deregisterMock">
+        function <span class="apidocSignatureSpan">mockery.</span>deregisterMock
+        <span class="apidocSignatureSpan">(mod)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deregisterMock(mod) {
+    if (registeredMocks.hasOwnProperty(mod)) {
+        delete registeredMocks[mod];
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+"clever" matching.
+* _mock_, the mock to be provided. Whatever is provided here is what will
+become the result of subsequent `require` calls; that is, the `exports` of the
+module.
+
+If you no longer want your mock to be used, you can deregister it:
+
+    mockery.<span class="apidocCodeKeywordSpan">deregisterMock</span>('fs');
+
+Now the original module will be provided for any subsequent `require` calls.
+
+## Registering substitutes
+
+Sometimes you want to implement your mock itself as a module, especially if it's
+more complicated and you'll be reusing it more widely. In that case, you can
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.deregisterSubstitute" id="apidoc.element.mockery.deregisterSubstitute">
+        function <span class="apidocSignatureSpan">mockery.</span>deregisterSubstitute
+        <span class="apidocSignatureSpan">(mod)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deregisterSubstitute(mod) {
+    if (registeredSubstitutes.hasOwnProperty(mod)) {
+        delete registeredSubstitutes[mod];
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+* _module_, the name or path of the module for which a substitute is being
+registered. This must exactly match the argument to `require`; there is no
+"clever" matching.
+* _substitute_, the name or path of the module to substitute for _module_.
+
+If you no longer want your substitute to be used, you can deregister it:
+
+    mockery.<span class="apidocCodeKeywordSpan">deregisterSubstitute</span>('fs');
+
+Now the original module will be provided for any subsequent `require` calls.
+
+## Registering allowable modules
+
+If you enable Mockery and _don't_ mock or substitute a module that is later
+loaded via `require`, Mockery will print a warning to the console to tell you
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.disable" id="apidoc.element.mockery.disable">
+        function <span class="apidocSignatureSpan">mockery.</span>disable
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function disable() {
+    if (!originalLoader) {
+        // Not hooked
+        return;
+    }
+
+    if (options.useCleanCache) {
+        // Previously this just set m._cache to originalCache. This would make
+        // node re-require native addons that were required while mockery was
+        // enabled, which breaks it in node@&gt;=0.12. Instead populate
+        // originalCache with any native addons that were first required since
+        // mockery was enabled.
+        Object.keys(m._cache).forEach(function(k){
+            if (k.indexOf('\.node') &gt; -1 &amp;&amp; !originalCache[k]) {
+                originalCache[k] = m._cache[k];
+            }
+        });
+        removeParentReferences();
+        m._cache = originalCache;
+        originalCache = null;
+    }
+
+    m._load = originalLoader;
+    originalLoader = null;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+Mockery in the test setup and teardown functions for your test cases. Something
+like this:
+
+    setUp: function() {
+        mockery.enable();
+    },
+    tearDown: function() {
+        mockery.<span class="apidocCodeKeywordSpan">disable</span>();
+    }
+
+### Options
+
+You can set up some initial configuration by passing an options object to
+`enable`. Omitting the options object, or any of the defined keys, causes the
+standard defaults to be used.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.enable" id="apidoc.element.mockery.enable">
+        function <span class="apidocSignatureSpan">mockery.</span>enable
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function enable(opts) {
+    if (originalLoader) {
+        // Already hooked
+        return;
+    }
+
+    options = getEffectiveOptions(opts);
+
+    if (options.useCleanCache) {
+        originalCache = m._cache;
+        m._cache = {};
+        repopulateNative();
+    }
+
+    originalLoader = m._load;
+    m._load = hookedLoader;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+your usage as narrowly as possible.
+
+If you're using a typical unit testing framework, you might enable and disable
+Mockery in the test setup and teardown functions for your test cases. Something
+like this:
+
+    setUp: function() {
+        mockery.<span class="apidocCodeKeywordSpan">enable</span>();
+    },
+    tearDown: function() {
+        mockery.disable();
+    }
+
+### Options
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.registerAllowable" id="apidoc.element.mockery.registerAllowable">
+        function <span class="apidocSignatureSpan">mockery.</span>registerAllowable
+        <span class="apidocSignatureSpan">(mod, unhook)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function registerAllowable(mod, unhook) {
+    registeredAllowables[mod] = {
+        unhook: !!unhook,
+        paths: []
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+that. This is so that you don't inadvertently use downstream modules without
+being aware of them. By registering a module as "allowable", you tell Mockery
+that you know about its use, and then Mockery won't print the warning.
+
+The most common use case for this is your source-under-test, which obviously
+you'll want to load without warnings. For example:
+
+mockery.<span class="apidocCodeKeywordSpan">registerAllowable</span>('./my-source-under-test');
+
+As with `registerMock` and `registerSubstitute`, the first argument, _module_,
+is the name or path of the module as it would be provided to `require`. Once
+again, you can deregister it if you need to:
+
+mockery.deregisterAllowable('./my-source-under-test');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.registerAllowables" id="apidoc.element.mockery.registerAllowables">
+        function <span class="apidocSignatureSpan">mockery.</span>registerAllowables
+        <span class="apidocSignatureSpan">(mods, unhook)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function registerAllowables(mods, unhook) {
+    mods.forEach(function (mod) {
+        registerAllowable(mod, unhook);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+again, you can deregister it if you need to:
+
+    mockery.deregisterAllowable('./my-source-under-test');
+
+Sometimes you'll find that you need to register several modules at once. A
+convenience function lets you do this with a single call:
+
+    mockery.<span class="apidocCodeKeywordSpan">registerAllowables</span>(['async', 'path', 'util']);
+
+and similarly to deregister several modules at once, as you would expect:
+
+    mockery.deregisterAllowables(['async', 'path', 'util']);
+
+### Unhooking
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.registerMock" id="apidoc.element.mockery.registerMock">
+        function <span class="apidocSignatureSpan">mockery.</span>registerMock
+        <span class="apidocSignatureSpan">(mod, mock)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function registerMock(mod, mock) {
+    if (options.warnOnReplace &amp;&amp; registeredMocks.hasOwnProperty(mod)) {
+        console.warn("WARNING: Replacing existing mock for module: " + mod);
+    }
+    registeredMocks[mod] = mock;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+You register your mocks with Mockery to tell it which mocks to provide for which
+`require` calls. For example:
+
+    var fsMock = {
+        stat: function (path, cb) { /* your mock code */ }
+    };
+    mockery.<span class="apidocCodeKeywordSpan">registerMock</span>('fs', fsMock);
+
+The arguments to `registerMock` are as follows:
+
+* _module_, the name or path of the module for which a mock is being
+registered. This must exactly match the argument to `require`; there is no
+"clever" matching.
+* _mock_, the mock to be provided. Whatever is provided here is what will
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.registerSubstitute" id="apidoc.element.mockery.registerSubstitute">
+        function <span class="apidocSignatureSpan">mockery.</span>registerSubstitute
+        <span class="apidocSignatureSpan">(mod, subst)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function registerSubstitute(mod, subst) {
+    if (options.warnOnReplace &amp;&amp; registeredSubstitutes.hasOwnProperty(mod)) {
+        console.warn("WARNING: Replacing existing substitute for module: " + mod);
+    }
+    registeredSubstitutes[mod] = {
+        name: subst
+    };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+## Registering substitutes
+
+Sometimes you want to implement your mock itself as a module, especially if it's
+more complicated and you'll be reusing it more widely. In that case, you can
+tell Mockery to substitute that module for the original one. For example:
+
+    mockery.<span class="apidocCodeKeywordSpan">registerSubstitute</span>('fs', 'fs-mock');
+
+Now any `require` invocation for 'fs' will be satisfied by loading the 'fs-mock'
+module instead.
+
+The arguments to `registerSubstitute` are as follows:
+
+* _module_, the name or path of the module for which a substitute is being
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.resetCache" id="apidoc.element.mockery.resetCache">
+        function <span class="apidocSignatureSpan">mockery.</span>resetCache
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function resetCache() {
+    if (options.useCleanCache &amp;&amp; originalCache) {
+        removeParentReferences();
+        m._cache = {};
+        repopulateNative();
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+disabled. The original cache is reinstated at that point, so you are back to
+where you were before enabling the clean cache option.
+
+While you are working with a temporary cache, it may occasionally be useful to
+reset it to a clean state again, without disabling and re-enabling Mockery. You
+can do this with:
+
+    mockery.<span class="apidocCodeKeywordSpan">resetCache</span>();
+
+This function has no effect if the clean cache option is not already in use.
+
+## Disabling warnings
+
+As mentioned above, if you enable Mockery and _don't_ mock, substitute, or
+allow a module that is later loaded, Mockery will print a warning to the
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.warnOnReplace" id="apidoc.element.mockery.warnOnReplace">
+        function <span class="apidocSignatureSpan">mockery.</span>warnOnReplace
+        <span class="apidocSignatureSpan">(enable)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function warnOnReplace(enable) {
+    options.warnOnReplace = enable;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Mockery will also print a warning to the console whenever you register a mock
+or substitute for a module for which one is already registered. This is almost
+always what you want, since you should be deregistering mocks and substitutes
+that you no longer need. Occasionally, though, you may want to suppress these
+warnings, which you can do like this:
+
+    mockery.<span class="apidocCodeKeywordSpan">warnOnReplace</span>(false);
+
+In either of these cases, if you later need to re-enable the warnings, then
+passing `true` to the same functions will do that, as you might imagine.
+
+## The name
+
+Mockery is to mocks as rookery is to rooks.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.mockery.warnOnUnregistered" id="apidoc.element.mockery.warnOnUnregistered">
+        function <span class="apidocSignatureSpan">mockery.</span>warnOnUnregistered
+        <span class="apidocSignatureSpan">(enable)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function warnOnUnregistered(enable) {
+    options.warnOnUnregistered = enable;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+so that you don't end up using modules you weren't aware of.
+
+In certain circumstances, such as when writing functional or integration tests,
+you may find it irritating to have to allow each module or to have all the
+warnings appear on the console. If you need to, you can tell Mockery to turn
+off those warnings:
+
+    mockery.<span class="apidocCodeKeywordSpan">warnOnUnregistered</span>(false);
+
+Mockery will also print a warning to the console whenever you register a mock
+or substitute for a module for which one is already registered. This is almost
+always what you want, since you should be deregistering mocks and substitutes
+that you no longer need. Occasionally, though, you may want to suppress these
+warnings, which you can do like this:
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
