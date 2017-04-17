@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/mfncooper/mockery"
-
-    >mockery (v2.0.0)</a>
+    <a href="https://github.com/mfncooper/mockery">mockery (v2.0.0)</a>
 </h1>
 <h4>Simplifying the use of mocks with Node.js</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.mockery">module mockery</a><ol>
 
@@ -402,7 +395,7 @@
 
 ## Deregistering everything
 
-Since it&#x27;s such a common use case, especially when you&#x27;re using a unit test
+Since it's such a common use case, especially when you're using a unit test
 framework and its setup and teardown functions, Mockery provides a convenience
 function to deregister everything:
 
@@ -439,18 +432,18 @@ One of the common problems that people encounter when trying to use mocks in
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-    mockery.registerAllowable(&#x27;./my-source-under-test&#x27;);
+    mockery.registerAllowable('./my-source-under-test');
 
 As with `registerMock` and `registerSubstitute`, the first argument, _module_,
 is the name or path of the module as it would be provided to `require`. Once
 again, you can deregister it if you need to:
 
-    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowable</span>(&#x27;./my-source-under-test&#x27;);
+    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowable</span>('./my-source-under-test');
 
-Sometimes you&#x27;ll find that you need to register several modules at once. A
+Sometimes you'll find that you need to register several modules at once. A
 convenience function lets you do this with a single call:
 
-    mockery.registerAllowables([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27;]);
+    mockery.registerAllowables(['async', 'path', 'util']);
 
 and similarly to deregister several modules at once, as you would expect:
 ...</pre></li>
@@ -471,20 +464,20 @@ and similarly to deregister several modules at once, as you would expect:
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-Sometimes you&#x27;ll find that you need to register several modules at once. A
+Sometimes you'll find that you need to register several modules at once. A
 convenience function lets you do this with a single call:
 
-    mockery.registerAllowables([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27;]);
+    mockery.registerAllowables(['async', 'path', 'util']);
 
 and similarly to deregister several modules at once, as you would expect:
 
-    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowables</span>([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27
+    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowables</span>(['async', 'path', 'util'
 ;]);
 
 ### Unhooking
 
 By default, the Node module loader will load a given module only once, caching
-the loaded module for the lifetime of the process. When you&#x27;re using Mockery,
+the loaded module for the lifetime of the process. When you're using Mockery,
 this is almost always what you want. _Almost_. In relatively rare situations,
 you may find that you need to use different mocks for different test cases
 ...</pre></li>
@@ -505,21 +498,21 @@ you may find that you need to use different mocks for different test cases
     }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-&#x22;clever&#x22; matching.
+"clever" matching.
 * _mock_, the mock to be provided. Whatever is provided here is what will
 become the result of subsequent `require` calls; that is, the `exports` of the
 module.
 
 If you no longer want your mock to be used, you can deregister it:
 
-    mockery.<span class="apidocCodeKeywordSpan">deregisterMock</span>(&#x27;fs&#x27;);
+    mockery.<span class="apidocCodeKeywordSpan">deregisterMock</span>('fs');
 
 Now the original module will be provided for any subsequent `require` calls.
 
 ## Registering substitutes
 
-Sometimes you want to implement your mock itself as a module, especially if it&#x27;s
-more complicated and you&#x27;ll be reusing it more widely. In that case, you can
+Sometimes you want to implement your mock itself as a module, especially if it's
+more complicated and you'll be reusing it more widely. In that case, you can
 ...</pre></li>
     </ul>
 
@@ -540,18 +533,18 @@ more complicated and you&#x27;ll be reusing it more widely. In that case, you ca
     <li>example usage<pre class="apidocCodePre">...
 * _module_, the name or path of the module for which a substitute is being
 registered. This must exactly match the argument to `require`; there is no
-&#x22;clever&#x22; matching.
+"clever" matching.
 * _substitute_, the name or path of the module to substitute for _module_.
 
 If you no longer want your substitute to be used, you can deregister it:
 
-    mockery.<span class="apidocCodeKeywordSpan">deregisterSubstitute</span>(&#x27;fs&#x27;);
+    mockery.<span class="apidocCodeKeywordSpan">deregisterSubstitute</span>('fs');
 
 Now the original module will be provided for any subsequent `require` calls.
 
 ## Registering allowable modules
 
-If you enable Mockery and _don&#x27;t_ mock or substitute a module that is later
+If you enable Mockery and _don't_ mock or substitute a module that is later
 loaded via `require`, Mockery will print a warning to the console to tell you
 ...</pre></li>
     </ul>
@@ -574,11 +567,11 @@ loaded via `require`, Mockery will print a warning to the console to tell you
     if (options.useCleanCache) {
         // Previously this just set m._cache to originalCache. This would make
         // node re-require native addons that were required while mockery was
-        // enabled, which breaks it in node@&#x3e;=0.12. Instead populate
+        // enabled, which breaks it in node@&gt;=0.12. Instead populate
         // originalCache with any native addons that were first required since
         // mockery was enabled.
         Object.keys(m._cache).forEach(function(k){
-            if (k.indexOf(&#x27;\.node&#x27;) &#x3e; -1 &#x26;&#x26; !originalCache[k]) {
+            if (k.indexOf('\.node') &gt; -1 &amp;&amp; !originalCache[k]) {
                 originalCache[k] = m._cache[k];
             }
         });
@@ -638,7 +631,7 @@ standard defaults to be used.
     <li>example usage<pre class="apidocCodePre">...
 your usage as narrowly as possible.
 
-If you&#x27;re using a typical unit testing framework, you might enable and disable
+If you're using a typical unit testing framework, you might enable and disable
 Mockery in the test setup and teardown functions for your test cases. Something
 like this:
 
@@ -669,20 +662,20 @@ like this:
     };
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-that. This is so that you don&#x27;t inadvertently use downstream modules without
-being aware of them. By registering a module as &#x22;allowable&#x22;, you tell Mockery
-that you know about its use, and then Mockery won&#x27;t print the warning.
+that. This is so that you don't inadvertently use downstream modules without
+being aware of them. By registering a module as "allowable", you tell Mockery
+that you know about its use, and then Mockery won't print the warning.
 
 The most common use case for this is your source-under-test, which obviously
-you&#x27;ll want to load without warnings. For example:
+you'll want to load without warnings. For example:
 
-mockery.<span class="apidocCodeKeywordSpan">registerAllowable</span>(&#x27;./my-source-under-test&#x27;);
+mockery.<span class="apidocCodeKeywordSpan">registerAllowable</span>('./my-source-under-test');
 
 As with `registerMock` and `registerSubstitute`, the first argument, _module_,
 is the name or path of the module as it would be provided to `require`. Once
 again, you can deregister it if you need to:
 
-mockery.deregisterAllowable(&#x27;./my-source-under-test&#x27;);
+mockery.deregisterAllowable('./my-source-under-test');
 ...</pre></li>
     </ul>
 
@@ -703,16 +696,16 @@ mockery.deregisterAllowable(&#x27;./my-source-under-test&#x27;);
     <li>example usage<pre class="apidocCodePre">...
 again, you can deregister it if you need to:
 
-    mockery.deregisterAllowable(&#x27;./my-source-under-test&#x27;);
+    mockery.deregisterAllowable('./my-source-under-test');
 
-Sometimes you&#x27;ll find that you need to register several modules at once. A
+Sometimes you'll find that you need to register several modules at once. A
 convenience function lets you do this with a single call:
 
-    mockery.<span class="apidocCodeKeywordSpan">registerAllowables</span>([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27;]);
+    mockery.<span class="apidocCodeKeywordSpan">registerAllowables</span>(['async', 'path', 'util']);
 
 and similarly to deregister several modules at once, as you would expect:
 
-    mockery.deregisterAllowables([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27;]);
+    mockery.deregisterAllowables(['async', 'path', 'util']);
 
 ### Unhooking
 ...</pre></li>
@@ -728,8 +721,8 @@ and similarly to deregister several modules at once, as you would expect:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function registerMock(mod, mock) {
-    if (options.warnOnReplace &#x26;&#x26; registeredMocks.hasOwnProperty(mod)) {
-        console.warn(&#x22;WARNING: Replacing existing mock for module: &#x22; + mod);
+    if (options.warnOnReplace &amp;&amp; registeredMocks.hasOwnProperty(mod)) {
+        console.warn("WARNING: Replacing existing mock for module: " + mod);
     }
     registeredMocks[mod] = mock;
 }</pre></li>
@@ -741,13 +734,13 @@ You register your mocks with Mockery to tell it which mocks to provide for which
     var fsMock = {
         stat: function (path, cb) { /* your mock code */ }
     };
-    mockery.<span class="apidocCodeKeywordSpan">registerMock</span>(&#x27;fs&#x27;, fsMock);
+    mockery.<span class="apidocCodeKeywordSpan">registerMock</span>('fs', fsMock);
 
 The arguments to `registerMock` are as follows:
 
 * _module_, the name or path of the module for which a mock is being
 registered. This must exactly match the argument to `require`; there is no
-&#x22;clever&#x22; matching.
+"clever" matching.
 * _mock_, the mock to be provided. Whatever is provided here is what will
 ...</pre></li>
     </ul>
@@ -762,8 +755,8 @@ registered. This must exactly match the argument to `require`; there is no
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function registerSubstitute(mod, subst) {
-    if (options.warnOnReplace &#x26;&#x26; registeredSubstitutes.hasOwnProperty(mod)) {
-        console.warn(&#x22;WARNING: Replacing existing substitute for module: &#x22; + mod);
+    if (options.warnOnReplace &amp;&amp; registeredSubstitutes.hasOwnProperty(mod)) {
+        console.warn("WARNING: Replacing existing substitute for module: " + mod);
     }
     registeredSubstitutes[mod] = {
         name: subst
@@ -773,13 +766,13 @@ registered. This must exactly match the argument to `require`; there is no
 
 ## Registering substitutes
 
-Sometimes you want to implement your mock itself as a module, especially if it&#x27;s
-more complicated and you&#x27;ll be reusing it more widely. In that case, you can
+Sometimes you want to implement your mock itself as a module, especially if it's
+more complicated and you'll be reusing it more widely. In that case, you can
 tell Mockery to substitute that module for the original one. For example:
 
-    mockery.<span class="apidocCodeKeywordSpan">registerSubstitute</span>(&#x27;fs&#x27;, &#x27;fs-mock&#x27;);
+    mockery.<span class="apidocCodeKeywordSpan">registerSubstitute</span>('fs', 'fs-mock');
 
-Now any `require` invocation for &#x27;fs&#x27; will be satisfied by loading the &#x27;fs-mock&#x27;
+Now any `require` invocation for 'fs' will be satisfied by loading the 'fs-mock'
 module instead.
 
 The arguments to `registerSubstitute` are as follows:
@@ -798,7 +791,7 @@ The arguments to `registerSubstitute` are as follows:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function resetCache() {
-    if (options.useCleanCache &#x26;&#x26; originalCache) {
+    if (options.useCleanCache &amp;&amp; originalCache) {
         removeParentReferences();
         m._cache = {};
         repopulateNative();
@@ -818,7 +811,7 @@ This function has no effect if the clean cache option is not already in use.
 
 ## Disabling warnings
 
-As mentioned above, if you enable Mockery and _don&#x27;t_ mock, substitute, or
+As mentioned above, if you enable Mockery and _don't_ mock, substitute, or
 allow a module that is later loaded, Mockery will print a warning to the
 ...</pre></li>
     </ul>
@@ -867,7 +860,7 @@ Mockery is to mocks as rookery is to rooks.
     options.warnOnUnregistered = enable;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-so that you don&#x27;t end up using modules you weren&#x27;t aware of.
+so that you don't end up using modules you weren't aware of.
 
 In certain circumstances, such as when writing functional or integration tests,
 you may find it irritating to have to allow each module or to have all the
@@ -916,7 +909,7 @@ warnings, which you can do like this:
 
 ## Deregistering everything
 
-Since it&#x27;s such a common use case, especially when you&#x27;re using a unit test
+Since it's such a common use case, especially when you're using a unit test
 framework and its setup and teardown functions, Mockery provides a convenience
 function to deregister everything:
 
@@ -958,18 +951,18 @@ One of the common problems that people encounter when trying to use mocks in
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-    mockery.registerAllowable(&#x27;./my-source-under-test&#x27;);
+    mockery.registerAllowable('./my-source-under-test');
 
 As with `registerMock` and `registerSubstitute`, the first argument, _module_,
 is the name or path of the module as it would be provided to `require`. Once
 again, you can deregister it if you need to:
 
-    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowable</span>(&#x27;./my-source-under-test&#x27;);
+    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowable</span>('./my-source-under-test');
 
-Sometimes you&#x27;ll find that you need to register several modules at once. A
+Sometimes you'll find that you need to register several modules at once. A
 convenience function lets you do this with a single call:
 
-    mockery.registerAllowables([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27;]);
+    mockery.registerAllowables(['async', 'path', 'util']);
 
 and similarly to deregister several modules at once, as you would expect:
 ...</pre></li>
@@ -995,20 +988,20 @@ and similarly to deregister several modules at once, as you would expect:
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-Sometimes you&#x27;ll find that you need to register several modules at once. A
+Sometimes you'll find that you need to register several modules at once. A
 convenience function lets you do this with a single call:
 
-    mockery.registerAllowables([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27;]);
+    mockery.registerAllowables(['async', 'path', 'util']);
 
 and similarly to deregister several modules at once, as you would expect:
 
-    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowables</span>([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27
+    mockery.<span class="apidocCodeKeywordSpan">deregisterAllowables</span>(['async', 'path', 'util'
 ;]);
 
 ### Unhooking
 
 By default, the Node module loader will load a given module only once, caching
-the loaded module for the lifetime of the process. When you&#x27;re using Mockery,
+the loaded module for the lifetime of the process. When you're using Mockery,
 this is almost always what you want. _Almost_. In relatively rare situations,
 you may find that you need to use different mocks for different test cases
 ...</pre></li>
@@ -1034,21 +1027,21 @@ you may find that you need to use different mocks for different test cases
     }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-&#x22;clever&#x22; matching.
+"clever" matching.
 * _mock_, the mock to be provided. Whatever is provided here is what will
 become the result of subsequent `require` calls; that is, the `exports` of the
 module.
 
 If you no longer want your mock to be used, you can deregister it:
 
-    mockery.<span class="apidocCodeKeywordSpan">deregisterMock</span>(&#x27;fs&#x27;);
+    mockery.<span class="apidocCodeKeywordSpan">deregisterMock</span>('fs');
 
 Now the original module will be provided for any subsequent `require` calls.
 
 ## Registering substitutes
 
-Sometimes you want to implement your mock itself as a module, especially if it&#x27;s
-more complicated and you&#x27;ll be reusing it more widely. In that case, you can
+Sometimes you want to implement your mock itself as a module, especially if it's
+more complicated and you'll be reusing it more widely. In that case, you can
 ...</pre></li>
     </ul>
 
@@ -1074,18 +1067,18 @@ more complicated and you&#x27;ll be reusing it more widely. In that case, you ca
     <li>example usage<pre class="apidocCodePre">...
 * _module_, the name or path of the module for which a substitute is being
 registered. This must exactly match the argument to `require`; there is no
-&#x22;clever&#x22; matching.
+"clever" matching.
 * _substitute_, the name or path of the module to substitute for _module_.
 
 If you no longer want your substitute to be used, you can deregister it:
 
-    mockery.<span class="apidocCodeKeywordSpan">deregisterSubstitute</span>(&#x27;fs&#x27;);
+    mockery.<span class="apidocCodeKeywordSpan">deregisterSubstitute</span>('fs');
 
 Now the original module will be provided for any subsequent `require` calls.
 
 ## Registering allowable modules
 
-If you enable Mockery and _don&#x27;t_ mock or substitute a module that is later
+If you enable Mockery and _don't_ mock or substitute a module that is later
 loaded via `require`, Mockery will print a warning to the console to tell you
 ...</pre></li>
     </ul>
@@ -1113,11 +1106,11 @@ loaded via `require`, Mockery will print a warning to the console to tell you
     if (options.useCleanCache) {
         // Previously this just set m._cache to originalCache. This would make
         // node re-require native addons that were required while mockery was
-        // enabled, which breaks it in node@&#x3e;=0.12. Instead populate
+        // enabled, which breaks it in node@&gt;=0.12. Instead populate
         // originalCache with any native addons that were first required since
         // mockery was enabled.
         Object.keys(m._cache).forEach(function(k){
-            if (k.indexOf(&#x27;\.node&#x27;) &#x3e; -1 &#x26;&#x26; !originalCache[k]) {
+            if (k.indexOf('\.node') &gt; -1 &amp;&amp; !originalCache[k]) {
                 originalCache[k] = m._cache[k];
             }
         });
@@ -1182,7 +1175,7 @@ standard defaults to be used.
     <li>example usage<pre class="apidocCodePre">...
 your usage as narrowly as possible.
 
-If you&#x27;re using a typical unit testing framework, you might enable and disable
+If you're using a typical unit testing framework, you might enable and disable
 Mockery in the test setup and teardown functions for your test cases. Something
 like this:
 
@@ -1218,20 +1211,20 @@ like this:
     };
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-that. This is so that you don&#x27;t inadvertently use downstream modules without
-being aware of them. By registering a module as &#x22;allowable&#x22;, you tell Mockery
-that you know about its use, and then Mockery won&#x27;t print the warning.
+that. This is so that you don't inadvertently use downstream modules without
+being aware of them. By registering a module as "allowable", you tell Mockery
+that you know about its use, and then Mockery won't print the warning.
 
 The most common use case for this is your source-under-test, which obviously
-you&#x27;ll want to load without warnings. For example:
+you'll want to load without warnings. For example:
 
-mockery.<span class="apidocCodeKeywordSpan">registerAllowable</span>(&#x27;./my-source-under-test&#x27;);
+mockery.<span class="apidocCodeKeywordSpan">registerAllowable</span>('./my-source-under-test');
 
 As with `registerMock` and `registerSubstitute`, the first argument, _module_,
 is the name or path of the module as it would be provided to `require`. Once
 again, you can deregister it if you need to:
 
-mockery.deregisterAllowable(&#x27;./my-source-under-test&#x27;);
+mockery.deregisterAllowable('./my-source-under-test');
 ...</pre></li>
     </ul>
 
@@ -1257,16 +1250,16 @@ mockery.deregisterAllowable(&#x27;./my-source-under-test&#x27;);
     <li>example usage<pre class="apidocCodePre">...
 again, you can deregister it if you need to:
 
-    mockery.deregisterAllowable(&#x27;./my-source-under-test&#x27;);
+    mockery.deregisterAllowable('./my-source-under-test');
 
-Sometimes you&#x27;ll find that you need to register several modules at once. A
+Sometimes you'll find that you need to register several modules at once. A
 convenience function lets you do this with a single call:
 
-    mockery.<span class="apidocCodeKeywordSpan">registerAllowables</span>([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27;]);
+    mockery.<span class="apidocCodeKeywordSpan">registerAllowables</span>(['async', 'path', 'util']);
 
 and similarly to deregister several modules at once, as you would expect:
 
-    mockery.deregisterAllowables([&#x27;async&#x27;, &#x27;path&#x27;, &#x27;util&#x27;]);
+    mockery.deregisterAllowables(['async', 'path', 'util']);
 
 ### Unhooking
 ...</pre></li>
@@ -1287,8 +1280,8 @@ and similarly to deregister several modules at once, as you would expect:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function registerMock(mod, mock) {
-    if (options.warnOnReplace &#x26;&#x26; registeredMocks.hasOwnProperty(mod)) {
-        console.warn(&#x22;WARNING: Replacing existing mock for module: &#x22; + mod);
+    if (options.warnOnReplace &amp;&amp; registeredMocks.hasOwnProperty(mod)) {
+        console.warn("WARNING: Replacing existing mock for module: " + mod);
     }
     registeredMocks[mod] = mock;
 }</pre></li>
@@ -1300,13 +1293,13 @@ You register your mocks with Mockery to tell it which mocks to provide for which
     var fsMock = {
         stat: function (path, cb) { /* your mock code */ }
     };
-    mockery.<span class="apidocCodeKeywordSpan">registerMock</span>(&#x27;fs&#x27;, fsMock);
+    mockery.<span class="apidocCodeKeywordSpan">registerMock</span>('fs', fsMock);
 
 The arguments to `registerMock` are as follows:
 
 * _module_, the name or path of the module for which a mock is being
 registered. This must exactly match the argument to `require`; there is no
-&#x22;clever&#x22; matching.
+"clever" matching.
 * _mock_, the mock to be provided. Whatever is provided here is what will
 ...</pre></li>
     </ul>
@@ -1326,8 +1319,8 @@ registered. This must exactly match the argument to `require`; there is no
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function registerSubstitute(mod, subst) {
-    if (options.warnOnReplace &#x26;&#x26; registeredSubstitutes.hasOwnProperty(mod)) {
-        console.warn(&#x22;WARNING: Replacing existing substitute for module: &#x22; + mod);
+    if (options.warnOnReplace &amp;&amp; registeredSubstitutes.hasOwnProperty(mod)) {
+        console.warn("WARNING: Replacing existing substitute for module: " + mod);
     }
     registeredSubstitutes[mod] = {
         name: subst
@@ -1337,13 +1330,13 @@ registered. This must exactly match the argument to `require`; there is no
 
 ## Registering substitutes
 
-Sometimes you want to implement your mock itself as a module, especially if it&#x27;s
-more complicated and you&#x27;ll be reusing it more widely. In that case, you can
+Sometimes you want to implement your mock itself as a module, especially if it's
+more complicated and you'll be reusing it more widely. In that case, you can
 tell Mockery to substitute that module for the original one. For example:
 
-    mockery.<span class="apidocCodeKeywordSpan">registerSubstitute</span>(&#x27;fs&#x27;, &#x27;fs-mock&#x27;);
+    mockery.<span class="apidocCodeKeywordSpan">registerSubstitute</span>('fs', 'fs-mock');
 
-Now any `require` invocation for &#x27;fs&#x27; will be satisfied by loading the &#x27;fs-mock&#x27;
+Now any `require` invocation for 'fs' will be satisfied by loading the 'fs-mock'
 module instead.
 
 The arguments to `registerSubstitute` are as follows:
@@ -1367,7 +1360,7 @@ The arguments to `registerSubstitute` are as follows:
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function resetCache() {
-    if (options.useCleanCache &#x26;&#x26; originalCache) {
+    if (options.useCleanCache &amp;&amp; originalCache) {
         removeParentReferences();
         m._cache = {};
         repopulateNative();
@@ -1387,7 +1380,7 @@ This function has no effect if the clean cache option is not already in use.
 
 ## Disabling warnings
 
-As mentioned above, if you enable Mockery and _don&#x27;t_ mock, substitute, or
+As mentioned above, if you enable Mockery and _don't_ mock, substitute, or
 allow a module that is later loaded, Mockery will print a warning to the
 ...</pre></li>
     </ul>
@@ -1446,7 +1439,7 @@ Mockery is to mocks as rookery is to rooks.
     options.warnOnUnregistered = enable;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-so that you don&#x27;t end up using modules you weren&#x27;t aware of.
+so that you don't end up using modules you weren't aware of.
 
 In certain circumstances, such as when writing functional or integration tests,
 you may find it irritating to have to allow each module or to have all the
@@ -1472,3 +1465,4 @@ warnings, which you can do like this:
     ]
 </div>
 </div>
+</body></html>
