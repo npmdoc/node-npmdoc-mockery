@@ -1,7 +1,7 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
     "buildNpmdoc": "mockery",
-    "description": "api documentation for [mockery (v2.0.0)](https://github.com/mfncooper/mockery) [![npm package](https://img.shields.io/npm/v/npmdoc-mockery.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mockery) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mockery.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mockery)",
+    "description": "#### basic api documentation for  [mockery (v2.0.0)](https://github.com/mfncooper/mockery)  [![npm package](https://img.shields.io/npm/v/npmdoc-mockery.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mockery) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mockery.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mockery)",
     "devDependencies": {
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
         "mockery": "*",
@@ -36,5 +36,5 @@
         "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
         "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
-    "version": "0.0.2"
+    "version": "2017.4.25"
 }

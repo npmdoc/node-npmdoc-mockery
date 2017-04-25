@@ -1,4 +1,7 @@
-# api documentation for  [mockery (v2.0.0)](https://github.com/mfncooper/mockery)  [![npm package](https://img.shields.io/npm/v/npmdoc-mockery.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mockery) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mockery.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mockery)
+# npmdoc-mockery
+
+#### basic api documentation for  [mockery (v2.0.0)](https://github.com/mfncooper/mockery)  [![npm package](https://img.shields.io/npm/v/npmdoc-mockery.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-mockery) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-mockery.svg)](https://travis-ci.org/npmdoc/node-npmdoc-mockery)
+
 #### Simplifying the use of mocks with Node.js
 
 [![NPM](https://nodei.co/npm/mockery.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/mockery)
@@ -94,7 +97,8 @@
         "pretest": "jshint mockery.js ./test/*.js",
         "test": "istanbul cover --print both -- vows --spec ./test/*.js"
     },
-    "version": "2.0.0"
+    "version": "2.0.0",
+    "bin": {}
 }
 ```
 
